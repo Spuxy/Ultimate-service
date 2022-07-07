@@ -1,0 +1,8 @@
+.git/
+.dockerignore
+.gitignore
+.vscode
+zarf/docker/
+zarf/k8s/
+makefile
+README.md
