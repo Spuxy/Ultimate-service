@@ -1,1 +1,1 @@
-{"buildTargets":["all","build","kind-down","kind-status","kind-up","run","service"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}
+{"buildTargets":["all","build","kind-apply","kind-down","kind-load","kind-logs","kind-restart","kind-status","kind-status-service","kind-up","kind-update","kind-update-apply","run","service","tidy"],"launchTargets":[],"customConfigurationProvider":{"workspaceBrowse":{"browsePath":[],"compilerArgs":[]},"fileIndex":[]}}

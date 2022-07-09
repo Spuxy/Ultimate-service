@@ -5,8 +5,9 @@ make all --print-data-base --no-builtin-variables --no-builtin-rules --question
 # License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
 # This is free software: you are free to change and redistribute it.
 # There is NO WARRANTY, to the extent permitted by law.
+ 
 
-# Make data base, printed on Mon Jul  4 19:16:29 2022
+# Make data base, printed on Tue Jul  5 17:24:58 2022
 
 # Variables
 
@@ -23,13 +24,13 @@ FZF_ALT_C_OPTS = --preview 'tree -C {} | head -200'
 # environment
 CUSTOMSCRIPTS = /home/spuxy/.dotfiles/scripts/.local/scripts
 # environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-9a077a1c-c5b8-4005-8c59-6104f3377924.sock
+VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-36b3eeaa-ca78-4aff-8671-3917b09f4f7e.sock
 # environment
 VSCODE_CWD = /home/spuxy/programming/Go/Ultimate-Service
 # environment
 FZF_CTRL_T_OPTS = --preview "bat --style=numbers --color=always {} | head -500"
 # environment
-WINDOWID = 79691780
+WINDOWID = 44040196
 # environment
 YT_API_KEY = AIzaSyBHpJ6Wge773I_D6VpZW6NSc5VgDLHw-ic
 # default
@@ -38,12 +39,9 @@ MAKE_COMMAND := make
 GTK3_MODULES = xapp-gtk3-module
 # environment
 HISTFILE = /home/spuxy/.config/zsh/.zsh_history
-# environment
-GOPATH = /home/spuxy/go
 # automatic
 @D = $(patsubst %/,%,$(dir $@))
 # environment
- 
 MYVIMRC = /home/spuxy/.config/lvim/config.lua
 # environment
 OPENER = xdg-open
@@ -61,8 +59,6 @@ PWD = /home/spuxy/programming/Go/Ultimate-Service
 MAIL = /var/spool/mail/spuxy
 # environment
 XDG_DATA_DIRS = /home/spuxy/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
-# environment
-OLDPWD = /home/spuxy
 # automatic
 ^D = $(patsubst %/,%,$(dir $^))
 # environment
@@ -72,7 +68,7 @@ VSCODE_LOG_STACK = false
 # environment
 VSCODE_CODE_CACHE_PATH = /home/spuxy/.config/Code/CachedData/30d9c6cd9483b2cc586687151bcbcd635f373630
 # environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session1
+XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session3
 # environment
 LANG = C
 # environment
@@ -120,7 +116,7 @@ FZF_ALT_C_COMMAND = fd --type d --hidden --exclude .git
 # environment
 VSCODE_VERBOSE_LOGGING = true
 # environment
-VSCODE_PID = 91621
+VSCODE_PID = 706010
 # environment
 XDG_SESSION_TYPE = x11
 # automatic
@@ -158,7 +154,7 @@ MAKELEVEL := 0
 # default
 MAKE = $(MAKE_COMMAND)
 # environment
-PATH = /home/spuxy/.dotfiles/zsh/.config/zsh/plugins/zsh-completions/src:/home/spuxy/.dotfiles/scripts/.local/scripts/git:/home/spuxy/.dotfiles/scripts/.local/scripts/howdoi:/home/spuxy/.dotfiles/scripts/.local/scripts/tuxi:/home/spuxy/.dotfiles/scripts/.local/scripts/utils:/home/spuxy/.dotfiles/scripts/.local/scripts/docker:/home/spuxy/.dotfiles/scripts/.local/scripts/tmux:/home/spuxy/.dotfiles/scripts/.local/scripts/dragon:/home/spuxy/.dotfiles/scripts/.local/scripts/aria2:/home/spuxy/.dotfiles/scripts/.local/scripts/rofi:/home/spuxy/.dotfiles/scripts/.local/scripts:/home/spuxy/.local/bin:/usr/local/bin:/usr/local/sbin:/home/spuxy/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/usr/local/go/bin:/home/spuxy/.local/share/gem/ruby/3.0.0/bin
+PATH = /home/spuxy/.dotfiles/zsh/.config/zsh/plugins/zsh-completions/src:/home/spuxy/.dotfiles/scripts/.local/scripts/git:/home/spuxy/.dotfiles/scripts/.local/scripts/howdoi:/home/spuxy/.dotfiles/scripts/.local/scripts/tuxi:/home/spuxy/.dotfiles/scripts/.local/scripts/utils:/home/spuxy/.dotfiles/scripts/.local/scripts/docker:/home/spuxy/.dotfiles/scripts/.local/scripts/tmux:/home/spuxy/.dotfiles/scripts/.local/scripts/dragon:/home/spuxy/.dotfiles/scripts/.local/scripts/aria2:/home/spuxy/.dotfiles/scripts/.local/scripts/rofi:/home/spuxy/.dotfiles/scripts/.local/scripts:/home/spuxy/.local/bin:/usr/local/bin:/usr/local/sbin:/home/spuxy/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/home/spuxy/.local/share/flatpak/exports/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/usr/local/go/bin:/home/spuxy/.local/share/gem/ruby/3.0.0/bin
 # environment
 SPACESHIP_ROOT = /home/spuxy/.dotfiles/zsh/.config/zsh/plugins/spaceship-prompt
 # environment
@@ -238,8 +234,6 @@ NODE_PATH = /home/spuxy/.npm-packages/lib/node_modules:/home/spuxy/.npm-packages
 # makefile (from 'makefile', line 21)
 KIND_CLUSTER := ardan-starter-cluster
 # environment
-GOMODCACHE = /home/spuxy/go/pkg/mod
-# environment
 VISUAL = nvim
 # environment
 VIMWIKI_PATH = /home/spuxy/vimwiki
@@ -256,9 +250,7 @@ VSCODE_IPC_HOOK = /run/user/1000/vscode-f96a6313-1.68.1-main.sock
 # environment
 TERM = xterm-256color
 # environment
-XDG_SESSION_ID = 2
-# environment
-GOPROXY = https://proxy.golang.org,direct
+XDG_SESSION_ID = 5
 # default
 .RECIPEPREFIX := 
 # automatic
@@ -276,7 +268,7 @@ WM = bspwm
 # environment
 ZDOTPLUGINS = /home/spuxy/.dotfiles/zsh/.config/zsh/plugins
 # variable set hash-table stats:
-# Load=132/1024=13%, Rehash=0, Collisions=6/168=4%
+# Load=128/1024=12%, Rehash=0, Collisions=6/164=4%
 
 # Pattern-specific Variable Values
 
@@ -284,15 +276,42 @@ ZDOTPLUGINS = /home/spuxy/.dotfiles/zsh/.config/zsh/plugins
 
 # Directories
 
-# . (device 2050, inode 5374104): 7 files, no impossibilities.
+# . (device 2050, inode 5374104): 12 files, no impossibilities.
 
-# 7 files, no impossibilities in 1 directories.
+# 12 files, no impossibilities in 1 directories.
 
 # Implicit Rules
 
 # No implicit rules.
 
 # Files
+
+kind-load:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 42):
+	kind load docker-image sales-api-amd64:$(VERSION) --name $(KIND_CLUSTER)
+
+kind-update-apply: all kind-load kind-apply
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+tidy:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 58):
+	go mod tidy
+	go mod vendor
+
+kind-apply:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 45):
+	kustomize build zarf/k8s/kind/service-pod | kubectl apply -f -
 
 kind-status:
 #  Implicit rule search has not been done.
@@ -317,6 +336,7 @@ all: service
 #  Needs to be updated (-q is set).
 # variable set hash-table stats:
 # Load=0/32=0%, Rehash=0, Collisions=0/5=0%
+ 
 
 run:
 #  Implicit rule search has not been done.
@@ -341,12 +361,19 @@ kind-up:
 		--image kindest/node:v1.24.0@sha256:0866296e693efe1fed79d5e6c7af8df71fc73ae45e3679af05342239cdc5bc8e \
 		--name $(KIND_CLUSTER) \
 		--config zarf/k8s/kind/kind-config.yaml
-	kubectl config set-context --current --namespace=sales-system
+	kubectl config set-context --current --namespace=service-system
+
+kind-restart:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 51):
+	kubectl rollout restart deployment service-pod
 
 # Not a target:
 makefile:
 #  Implicit rule search has been done.
-#  Last modified 2022-07-04 18:49:24.438335994
+#  Last modified 2022-07-05 00:13:15.994673685
 #  File has been updated.
 #  Successfully updated.
 
@@ -382,8 +409,20 @@ service:
 		--build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
 		.
 
+kind-logs:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 48):
+	kubectl logs -l app=service --all-containers=true -f --tail=100
+
 # Not a target:
 .SUFFIXES:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+
+kind-update: all kind-load kind-restart
 #  Implicit rule search has not been done.
 #  Modification time never checked.
 #  File has not been updated.
@@ -395,434 +434,27 @@ kind-down:
 #  recipe to execute (from 'makefile', line 31):
 	kind delete cluster --name $(KIND_CLUSTER) 
 
+kind-status-service:
+#  Implicit rule search has not been done.
+#  Modification time never checked.
+#  File has not been updated.
+#  recipe to execute (from 'makefile', line 39):
+	kubectl get pods -o wide --watch --namespace=service-system
+
 # files hash-table stats:
-# Load=10/1024=1%, Rehash=0, Collisions=0/24=0%
+# Load=18/1024=2%, Rehash=0, Collisions=0/38=0%
 # VPATH Search Paths
 
 # No 'vpath' search paths.
 
 # No general ('VPATH' variable) search path.
 
-# strcache buffers: 1 (0) / strings = 18 / storage = 145 B / avg = 8 B
-# current buf: size = 8162 B / used = 145 B / count = 18 / avg = 8 B
+# strcache buffers: 1 (0) / strings = 31 / storage = 284 B / avg = 9 B
+# current buf: size = 8162 B / used = 284 B / count = 31 / avg = 9 B
 
-# strcache performance: lookups = 32 / hit rate = 43%
+# strcache performance: lookups = 59 / hit rate = 47%
 # hash-table stats:
-# Load=18/8192=0%, Rehash=0, Collisions=0/32=0%
-# Finished Make data base on Mon Jul  4 19:16:29 2022
-
- 
-# GNU Make 4.3
-# Built for x86_64-pc-linux-gnu
-# Copyright (C) 1988-2020 Free Software Foundation, Inc.
-# License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
-# This is free software: you are free to change and redistribute it.
-# There is NO WARRANTY, to the extent permitted by law.
- 
-
-# Make data base, printed on Mon Jul  4 19:16:29 2022
-
-# Variables
-
-# environment
-FZF_DEFAULT_OPTS = --color=16,hl:4,hl+:4,bg+:15,fg+:8,spinner:5,info:2
-# environment
-GDK_BACKEND = x11
-# environment
-LC_ALL = C
-# environment
-NO_AT_BRIDGE = 1
-# environment
-FZF_ALT_C_OPTS = --preview 'tree -C {} | head -200'
-# environment
-CUSTOMSCRIPTS = /home/spuxy/.dotfiles/scripts/.local/scripts
-# environment
-VSCODE_IPC_HOOK_EXTHOST = /run/user/1000/vscode-ipc-65755a16-6cd9-445d-9351-8fb311a18f68.sock
-# environment
-VSCODE_CWD = /home/spuxy/programming/Go/Ultimate-Service
-# environment
-FZF_CTRL_T_OPTS = --preview "bat --style=numbers --color=always {} | head -500"
-# environment
-WINDOWID = 79691780
-# environment
-YT_API_KEY = AIzaSyBHpJ6Wge773I_D6VpZW6NSc5VgDLHw-ic
-# default
-MAKE_COMMAND := make
-# environment
-GTK3_MODULES = xapp-gtk3-module
-# environment
-HISTFILE = /home/spuxy/.config/zsh/.zsh_history
-# environment
-GOPATH = /home/spuxy/go
-# automatic
-@D = $(patsubst %/,%,$(dir $@))
-# environment
-MYVIMRC = /home/spuxy/.config/lvim/config.lua
-# environment
-OPENER = xdg-open
-# environment
-UPDATE_ZSH_DAYS = 3
-# environment
-VSCODE_HANDLES_UNCAUGHT_ERRORS = true
-# default
-.VARIABLES := 
-# environment
-PWD = /home/spuxy/programming/Go/Ultimate-Service
-# automatic
-%D = $(patsubst %/,%,$(dir $%))
-# environment
-MAIL = /var/spool/mail/spuxy
-# environment
-XDG_DATA_DIRS = /home/spuxy/.local/share/flatpak/exports/share:/var/lib/flatpak/exports/share:/usr/local/share:/usr/share:/var/lib/snapd/desktop
-# environment
-OLDPWD = /home/spuxy
-# automatic
-^D = $(patsubst %/,%,$(dir $^))
-# environment
-VSCODE_LOG_STACK = false
-# automatic
-%F = $(notdir $%)
-# environment
-VSCODE_CODE_CACHE_PATH = /home/spuxy/.config/Code/CachedData/30d9c6cd9483b2cc586687151bcbcd635f373630
-# environment
-XDG_SESSION_PATH = /org/freedesktop/DisplayManager/Session1
-# environment
-LANG = C
-# environment
-SPACESHIP_VERSION = 3.16.7
-# environment
-XAUTHORITY = /home/spuxy/.Xauthority
-# default
-.LOADED := 
-# default
-.INCLUDE_DIRS = /usr/include /usr/local/include /usr/include
-# makefile
-MAKEFLAGS = pqrR
-# environment
-FORMAT = ID\t{{.ID}}\nNAME\t{{.Names}}\nIMAGE\t{{.Image}}\nPORTS\t{{.Ports}}\nCOMMAND\t{{.Command}}\nCREATED\t{{.CreatedAt}}\nSTATUS\t{{.Status}}\n
-# makefile
-CURDIR := /home/spuxy/programming/Go/Ultimate-Service
-# environment
-VSCODE_PIPE_LOGGING = true
-# environment
-APPLICATION_INSIGHTS_NO_DIAGNOSTIC_CHANNEL = 1
-# automatic
-*D = $(patsubst %/,%,$(dir $*))
-# makefile (from 'makefile', line 9)
-VERSION := 1.0
-# environment
-MFLAGS = -pqrR
-# default
-.SHELLFLAGS := -c
-# environment
-HISTSIZE = 5000
-# automatic
-+D = $(patsubst %/,%,$(dir $+))
-# environment
-ZDOTDIR = /home/spuxy/.config/zsh
-# environment
-XDG_SESSION_DESKTOP = 
-# makefile (from 'makefile', line 1)
-MAKEFILE_LIST := makefile
-# automatic
-@F = $(notdir $@)
-# environment
-ZSH = /home/spuxy/.oh-my-zsh
-# environment
-FZF_ALT_C_COMMAND = fd --type d --hidden --exclude .git
-# environment
-VSCODE_VERBOSE_LOGGING = true
-# environment
-VSCODE_PID = 91621
-# environment
-XDG_SESSION_TYPE = x11
-# automatic
-?D = $(patsubst %/,%,$(dir $?))
-# environment
-FZF_DEFAULT_COMMAND = fd --type file --hidden --no-ignore
-# environment
-MANPAGER = less -s -M +Gg
-# automatic
-*F = $(notdir $*)
-# environment
-QT_QPA_PLATFORMTHEME = qt5ct
-# environment
-CHROME_DESKTOP = code-url-handler.desktop
-# environment
-DBUS_SESSION_BUS_ADDRESS = unix:path=/run/user/1000/bus
-# automatic
-<D = $(patsubst %/,%,$(dir $<))
-# environment
-VSCODE_NLS_CONFIG = {"locale":"en-us","availableLanguages":{},"_languagePackSupport":true}
-# default
-MAKE_HOST := x86_64-pc-linux-gnu
-# makefile (from 'makefile', line 1)
-SHELL := /usr/bin/zsh
-# default
-MAKECMDGOALS := all
-# environment
-READER = zathura
-# environment
-SHLVL = 2
-# environment
-VIMWIKI_COMPLETE_MARK = X
-# environment
-MAKELEVEL := 0
-# default
-MAKE = $(MAKE_COMMAND)
-# environment
-PATH = /home/spuxy/.dotfiles/zsh/.config/zsh/plugins/zsh-completions/src:/home/spuxy/.dotfiles/scripts/.local/scripts/git:/home/spuxy/.dotfiles/scripts/.local/scripts/howdoi:/home/spuxy/.dotfiles/scripts/.local/scripts/tuxi:/home/spuxy/.dotfiles/scripts/.local/scripts/utils:/home/spuxy/.dotfiles/scripts/.local/scripts/docker:/home/spuxy/.dotfiles/scripts/.local/scripts/tmux:/home/spuxy/.dotfiles/scripts/.local/scripts/dragon:/home/spuxy/.dotfiles/scripts/.local/scripts/aria2:/home/spuxy/.dotfiles/scripts/.local/scripts/rofi:/home/spuxy/.dotfiles/scripts/.local/scripts:/home/spuxy/.local/bin:/usr/local/bin:/usr/local/sbin:/home/spuxy/.nix-profile/bin:/nix/var/nix/profiles/default/bin:/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl:/var/lib/snapd/snap/bin:/usr/local/go/bin:/home/spuxy/.local/share/gem/ruby/3.0.0/bin
-# environment
-SPACESHIP_ROOT = /home/spuxy/.dotfiles/zsh/.config/zsh/plugins/spaceship-prompt
-# environment
-NIX_SSL_CERT_FILE = /etc/ssl/certs/ca-certificates.crt
-# default
-MAKEFILES := 
-# environment
-MOTD_SHOWN = pam
-# automatic
-^F = $(notdir $^)
-# environment
-XDG_CONFIG_HOME = /home/spuxy/.config/
-# environment
-ARCHDIR = /home/spuxy/pkgs-arch
-# environment
-VSCODE_LOG_NATIVE = false
-# environment
-NPM_PACKAGES = /home/spuxy/.npm-packages
-# environment
-DOTFILES = /home/spuxy/.dotfiles
-# automatic
-?F = $(notdir $?)
-# environment
-ZDOTCONFIG = /home/spuxy/.config/zsh/plug-config
-# environment
-XDG_SEAT = seat0
-# environment
-XDG_CURRENT_DESKTOP = 
-# automatic
-+F = $(notdir $+)
-# environment
-XDG_SEAT_PATH = /org/freedesktop/DisplayManager/Seat0
-# environment
-DESKTOP_SESSION = bspwm
-# environment
-ORIGINAL_XDG_CURRENT_DESKTOP = 
-# 'override' directive
-GNUMAKEFLAGS := 
-# environment
-BROWSER = qutebrowser
-# environment
-LOGNAME = spuxy
-# environment
-FZF_CTRL_T_COMMAND = fd --type f --hidden --exclude .git --exclude .cache
-# environment
-TERMINAL = alacritty
-# environment
-XDG_VTNR = 1
-# makefile
-.DEFAULT_GOAL := run
-# environment
-PHP_VERSIONS = /home/spuxy/.php_versions/
-# environment
-EDITOR = lvim
-# environment
-DISPLAY = :0
-# environment
-GTK_MODULES = canberra-gtk-module
-# environment
-USER = spuxy
-# default
-MAKE_VERSION := 4.3
-# environment
-NIX_PROFILES = /nix/var/nix/profiles/default /home/spuxy/.nix-profile
-# environment
-DOCKER_CONFIG = /home/spuxy/.docker
-# environment
-_ = /usr/bin/make
-# environment
-XDG_RUNTIME_DIR = /run/user/1000
-# environment
-LC_CTYPE = en_US.UTF-8
-# environment
-VIDEO = mpv
-# environment
-NODE_PATH = /home/spuxy/.npm-packages/lib/node_modules:/home/spuxy/.npm-packages/lib/node_modules:/home/spuxy/.npm-packages/lib/node_modules:
-# makefile (from 'makefile', line 21)
-KIND_CLUSTER := ardan-starter-cluster
-# environment
-GOMODCACHE = /home/spuxy/go/pkg/mod
-# environment
-VISUAL = nvim
-# environment
-VIMWIKI_PATH = /home/spuxy/vimwiki
-# environment
-XDG_SESSION_CLASS = user
-# environment
-VSCODE_AMD_ENTRYPOINT = vs/workbench/api/node/extensionHostProcess
-# environment
-HOME = /home/spuxy
-# environment
-ELECTRON_RUN_AS_NODE = 1
-# environment
-VSCODE_IPC_HOOK = /run/user/1000/vscode-f96a6313-1.68.1-main.sock
-# environment
-TERM = xterm-256color
-# environment
-XDG_SESSION_ID = 2
-# environment
-GOPROXY = https://proxy.golang.org,direct
-# default
-.RECIPEPREFIX := 
-# automatic
-<F = $(notdir $<)
-# default
-SUFFIXES := 
-# environment
-VSCODE_CLI = 1
-# environment
-ELECTRON_NO_ATTACH_CONSOLE = 1
-# default
-.FEATURES := target-specific order-only second-expansion else-if shortest-stem undefine oneshell nocomment grouped-target extra-prereqs archives jobserver output-sync check-symlink guile load
-# environment
-WM = bspwm
-# environment
-ZDOTPLUGINS = /home/spuxy/.dotfiles/zsh/.config/zsh/plugins
-# variable set hash-table stats:
-# Load=132/1024=13%, Rehash=0, Collisions=6/168=4%
-
-# Pattern-specific Variable Values
-
-# No pattern-specific variable values.
-
-# Directories
-
-# . (device 2050, inode 5374104): 7 files, no impossibilities.
-
-# 7 files, no impossibilities in 1 directories.
-
-# Implicit Rules
-
-# No implicit rules.
-
-# Files
-
-kind-status:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'makefile', line 34):
-	kubectl get nodes -o wide
-	kubectl get svc -o wide
-	kubectl get pods -o wide --watch --all-namespaces
-
-# Not a target:
-.DEFAULT:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-all: service
-#  Command line target.
-#  Implicit rule search has been done.
-#  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# variable set hash-table stats:
-# Load=0/32=0%, Rehash=0, Collisions=0/5=0%
-
-run:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
- 
-#  recipe to execute (from 'makefile', line 4):
-	go run main.go
-
-build:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'makefile', line 7):
-	go build -ldflags "-X main.build=build"
-
-kind-up:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'makefile', line 24):
-	kind create cluster \
-		--image kindest/node:v1.24.0@sha256:0866296e693efe1fed79d5e6c7af8df71fc73ae45e3679af05342239cdc5bc8e \
-		--name $(KIND_CLUSTER) \
-		--config zarf/k8s/kind/kind-config.yaml
-	kubectl config set-context --current --namespace=sales-system
-
-# Not a target:
-makefile:
-#  Implicit rule search has been done.
-#  Last modified 2022-07-04 18:49:24.438335994
-#  File has been updated.
-#  Successfully updated.
-
-service:
-#  Implicit rule search has not been done.
-#  Implicit/static pattern stem: ''
-#  File does not exist.
-#  File has been updated.
-#  Needs to be updated (-q is set).
-# automatic
-# @ := service
-# automatic
-# * := 
-# automatic
-# < := 
-# automatic
-# + := 
-# automatic
-# % := 
-# automatic
-# ^ := 
-# automatic
-# ? := 
-# automatic
-# | := 
-# variable set hash-table stats:
-# Load=8/32=25%, Rehash=0, Collisions=11/13=85%
-#  recipe to execute (from 'makefile', line 14):
-	docker build \
-		-f ./zarf/docker/Dockerfile  \
-		-t sales-api-amd64:$(VERSION) \
-		--build-arg BUILD_REF=$(VERSION) \
-		--build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
-		.
-
-# Not a target:
-.SUFFIXES:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-
-kind-down:
-#  Implicit rule search has not been done.
-#  Modification time never checked.
-#  File has not been updated.
-#  recipe to execute (from 'makefile', line 31):
-	kind delete cluster --name $(KIND_CLUSTER) 
-
-# files hash-table stats:
-# Load=10/1024=1%, Rehash=0, Collisions=0/24=0%
-# VPATH Search Paths
-
-# No 'vpath' search paths.
-
-# No general ('VPATH' variable) search path.
-
-# strcache buffers: 1 (0) / strings = 18 / storage = 145 B / avg = 8 B
-# current buf: size = 8162 B / used = 145 B / count = 18 / avg = 8 B
-
-# strcache performance: lookups = 32 / hit rate = 43%
-# hash-table stats:
-# Load=18/8192=0%, Rehash=0, Collisions=0/32=0%
-# Finished Make data base on Mon Jul  4 19:16:29 2022
+# Load=31/8192=0%, Rehash=0, Collisions=0/59=0%
+# Finished Make data base on Tue Jul  5 17:24:58 2022
 
  

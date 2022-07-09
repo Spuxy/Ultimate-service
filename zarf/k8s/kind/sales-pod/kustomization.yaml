@@ -4,3 +4,7 @@ resources:
 - ../../base/sales-pod/
 patchesStrategicMerge:
 - ./kind-sales-patch.yaml
+images:
+- name: sales-api-image
+  newName: sales-api-amd64
+  newTag: "1.1"
