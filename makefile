@@ -10,14 +10,14 @@ tidy:
 	go mod tidy
 	go mod vendor
 
-VERSION := 1.1
+VERSION := 1.2
 
 all: sales-api
 
 sales-api:
 	docker build \
 		-f ./zarf/docker/dockerfile.sales-api  \
-		-t sales-api-amd64:$(VERSION) \
+		-t wtf-barber-api-amd64:$(VERSION) \
 		--build-arg BUILD_REF=$(VERSION) \
 		--build-arg BUILD_DATE=`date -u +"%Y-%m-%dT%H:%M:%SZ"` \
 		.
