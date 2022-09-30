@@ -6,8 +6,8 @@ import (
 	"net/http/pprof"
 	"os"
 
+	"github.com/Spuxy/service/app/services/sales-api/handlers/api"
 	"github.com/Spuxy/service/app/services/sales-api/handlers/debug"
-	v1 "github.com/Spuxy/service/app/services/sales-api/handlers/v1"
 	"github.com/Spuxy/service/foundation/web"
 
 	"go.uber.org/zap"
@@ -50,14 +50,25 @@ type APIMuxConfig struct {
 	Log      *zap.SugaredLogger
 }
 
+// APIMux constructs a http.Handler with all application routes defined.
 func APIMux(cfg APIMuxConfig) *web.App {
+
+	// Construct the web.App which holds all routes as well as common Middleware.
 	mx := web.NewApp(cfg.Shutdown)
 
-	ah := v1.Handler{
+	// Load the v1 routes.
+	v1(mx, cfg)
+
+	return mx
+}
+
+// Routes binds all the version 1 routes.
+func v1(app *web.App, cfg APIMuxConfig) {
+	const version = "v1"
+
+	ah := api.Handler{
 		Log: cfg.Log,
 	}
 
-	mx.Handle(http.MethodGet, "/test", ah.Test)
-
-	return mx
+	app.Handle(http.MethodGet, version, "/test", ah.Test)
 }
