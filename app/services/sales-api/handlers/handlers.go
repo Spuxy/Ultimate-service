@@ -1,14 +1,15 @@
 package handlers
 
 import (
-	"encoding/json"
 	"expvar"
-	"github.com/Spuxy/service/app/services/sales-api/handlers/debug"
 	"net/http"
 	"net/http/pprof"
 	"os"
 
-	"github.com/dimfeld/httptreemux"
+	"github.com/Spuxy/service/app/services/sales-api/handlers/debug"
+	v1 "github.com/Spuxy/service/app/services/sales-api/handlers/v1"
+	"github.com/Spuxy/service/foundation/web"
+
 	"go.uber.org/zap"
 )
 
@@ -30,34 +31,33 @@ func debugStandardLibraryMux() *http.ServeMux {
 	return mux
 }
 
-func DebugMux(l *zap.SugaredLogger) http.Handler {
+func DebugMux(build string, l *zap.SugaredLogger) http.Handler {
 	mux := debugStandardLibraryMux()
 
 	dmux := debug.Handlers{
-		Log: l,
+		Build: build,
+		Log:   l,
 	}
 
 	mux.HandleFunc("/debug/readiness", dmux.Readiness)
+	mux.HandleFunc("/debug/liveness", dmux.Liveness)
 
 	return mux
 }
 
 type APIMuxConfig struct {
-	Log      *zap.SugaredLogger
 	Shutdown chan os.Signal
+	Log      *zap.SugaredLogger
 }
 
-func APIMux(cfg APIMuxConfig) *httptreemux.ContextMux {
-	mx := httptreemux.NewContextMux()
+func APIMux(cfg APIMuxConfig) *web.App {
+	mx := web.NewApp(cfg.Shutdown)
 
-	mx.Handle(http.MethodGet, "/test", func(rw http.ResponseWriter, r *http.Request) {
-		status := struct {
-			Status string
-		}{
-			Status: "OK",
-		}
-		json.NewEncoder(rw).Encode(status)
-	})
+	ah := v1.Handler{
+		Log: cfg.Log,
+	}
+
+	mx.Handle(http.MethodGet, "/test", ah.Test)
 
 	return mx
 }
