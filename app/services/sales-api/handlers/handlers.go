@@ -9,6 +9,7 @@ import (
 	"github.com/Spuxy/service/app/services/sales-api/handlers/api"
 	"github.com/Spuxy/service/app/services/sales-api/handlers/debug"
 	"github.com/Spuxy/service/foundation/web"
+	"github.com/dimfeld/httptreemux"
 
 	"go.uber.org/zap"
 )
@@ -51,7 +52,7 @@ type APIMuxConfig struct {
 }
 
 // APIMux constructs a http.Handler with all application routes defined.
-func APIMux(cfg APIMuxConfig) *web.App {
+func APIMux(cfg APIMuxConfig) *httptreemux.ContextMux {
 
 	// Construct the web.App which holds all routes as well as common Middleware.
 	mx := web.NewApp(cfg.Shutdown)
@@ -59,7 +60,7 @@ func APIMux(cfg APIMuxConfig) *web.App {
 	// Load the v1 routes.
 	v1(mx, cfg)
 
-	return mx
+	return mx.ContextMux
 }
 
 // Routes binds all the version 1 routes.

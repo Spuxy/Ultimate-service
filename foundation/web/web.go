@@ -19,25 +19,43 @@ type Handler func(ctx context.Context, w http.ResponseWriter, r *http.Request) e
 type App struct {
 	*httptreemux.ContextMux
 	Shutdown chan os.Signal
+	mw       []Middleware
 }
 
 // NewApp creates an App value that handle a set of routes for the application.
-func NewApp(shutdown chan os.Signal) *App {
+func NewApp(shutdown chan os.Signal, mw ...Middleware) *App {
+
+	// Create an OpenTelemetry HTTP Handler which wraps our router. This will start
+	// the initial span and annotate it with information about the request/response.
+	//
+	// This is configured to use the W3C TraceContext standard to set the remote
+	// parent if a client request includes the appropriate headers.
+	// https://w3c.github.io/trace-context/
+
 	return &App{
 		ContextMux: httptreemux.NewContextMux(),
 		Shutdown:   shutdown,
+		mw:         mw,
 	}
 }
 
 // Handle sets a handler function for a given HTTP method and path pair
 // to the application server mux.
-func (a *App) Handle(method string, group string, path string, handler Handler) {
+func (a *App) Handle(method string, group string, path string, handler Handler, mw ...Middleware) {
 
+	// First wrap handler specific middleware around this handler.
+	handler = wrapMiddleware(mw, handler)
+
+	// Add the application's general middleware to the handler chain.
+	handler = wrapMiddleware(a.mw, handler)
+
+	// The function to execute for each request.
 	h := func(w http.ResponseWriter, r *http.Request) {
 
 		// PRE CODE PROCCESSING
 		fmt.Fprintln(w, "PRE")
 
+		// Call the wrapped handler functions.
 		if err := handler(r.Context(), w, r); err != nil {
 			panic(err)
 		}
@@ -52,5 +70,5 @@ func (a *App) Handle(method string, group string, path string, handler Handler) 
 		finalPath = "/" + group + path
 	}
 
-	a.ContextGroup.Handle(method, finalPath, h)
+	a.ContextMux.Handle(method, finalPath, h)
 }
