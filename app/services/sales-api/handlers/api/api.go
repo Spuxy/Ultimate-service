@@ -2,9 +2,9 @@ package api
 
 import (
 	"context"
-	"encoding/json"
 	"net/http"
 
+	"github.com/Spuxy/service/foundation/web"
 	"go.uber.org/zap"
 )
 
@@ -19,8 +19,5 @@ func (h Handler) Test(ctx context.Context, w http.ResponseWriter, r *http.Reques
 		Status: "OK",
 	}
 
-	statusCode := http.StatusOK
-	h.Log.Infow("readiness", "statusCode", statusCode, "method", r.Method, "path", r.URL.Path)
-
-	return json.NewEncoder(w).Encode(status)
+	return web.Respond(ctx, w, status, http.StatusOK)
 }

@@ -8,6 +8,7 @@ import (
 
 	"github.com/Spuxy/service/app/services/sales-api/handlers/api"
 	"github.com/Spuxy/service/app/services/sales-api/handlers/debug"
+	"github.com/Spuxy/service/business/web/mid"
 	"github.com/Spuxy/service/foundation/web"
 	"github.com/dimfeld/httptreemux"
 
@@ -55,7 +56,10 @@ type APIMuxConfig struct {
 func APIMux(cfg APIMuxConfig) *httptreemux.ContextMux {
 
 	// Construct the web.App which holds all routes as well as common Middleware.
-	mx := web.NewApp(cfg.Shutdown)
+	mx := web.NewApp(
+		cfg.Shutdown,
+		mid.Logger(cfg.Log),
+	)
 
 	// Load the v1 routes.
 	v1(mx, cfg)

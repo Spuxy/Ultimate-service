@@ -5,8 +5,10 @@ import (
 	"fmt"
 	"net/http"
 	"os"
+	"time"
 
 	"github.com/dimfeld/httptreemux"
+	"github.com/google/uuid"
 )
 
 // A Handler is a type that handles a http request within our own little mini
@@ -44,7 +46,7 @@ func NewApp(shutdown chan os.Signal, mw ...Middleware) *App {
 func (a *App) Handle(method string, group string, path string, handler Handler, mw ...Middleware) {
 
 	// First wrap handler specific middleware around this handler.
-	handler = wrapMiddleware(mw, handler)
+	// handler = wrapMiddleware(mw, handler)
 
 	// Add the application's general middleware to the handler chain.
 	handler = wrapMiddleware(a.mw, handler)
@@ -52,11 +54,14 @@ func (a *App) Handle(method string, group string, path string, handler Handler, 
 	// The function to execute for each request.
 	h := func(w http.ResponseWriter, r *http.Request) {
 
-		// PRE CODE PROCCESSING
-		fmt.Fprintln(w, "PRE")
+		v := Values{
+			TraceID: uuid.New().String(),
+			Now:     time.Now(),
+		}
+		ctx := context.WithValue(r.Context(), key, &v)
 
 		// Call the wrapped handler functions.
-		if err := handler(r.Context(), w, r); err != nil {
+		if err := handler(ctx, w, r); err != nil {
 			panic(err)
 		}
 
