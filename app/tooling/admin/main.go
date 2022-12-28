@@ -6,19 +6,84 @@ import (
 	"crypto/x509"
 	"encoding/pem"
 	"fmt"
+	"io"
 	"os"
+	"time"
+
+	"github.com/golang-jwt/jwt/v4"
 )
 
 func main() {
-	err := GenKey()
+	err := getToken()
 	if err != nil {
 		fmt.Println(err)
 		os.Exit(1)
 	}
 }
 
-// GenKey creates an x509 private/public key for auth tokens.
-func GenKey() error {
+func getToken() error {
+	name := "zarf/keys/54bb2165-71e1-41a6-af3e-7da4a0e1e2c1.pem"
+	file, err := os.Open(name)
+	if err != nil {
+		return fmt.Errorf("Open file %s: %w", name, err)
+	}
+
+	privatePEM, err := io.ReadAll(io.LimitReader(file, 1024*1024))
+	if err != nil {
+		return fmt.Errorf("reading auth private key: %w", err)
+	}
+
+	privateKey, err := jwt.ParseRSAPrivateKeyFromPEM(privatePEM)
+	if err != nil {
+		return fmt.Errorf("parsing private key: %w", err)
+	}
+
+	claims := struct {
+		StandardClaims jwt.StandardClaims
+		roles          []string
+	}{
+		StandardClaims: jwt.StandardClaims{
+			Issuer:    "Service Project",
+			Subject:   "123456-user",
+			ExpiresAt: time.Now().Add(1 * time.Hour).Unix(),
+			IssuedAt:  time.Now().UTC().Unix(),
+		},
+		roles: []string{"admin"},
+	}
+
+	method := jwt.GetSigningMethod("RS256")
+	token := jwt.NewWithClaims(method, claims.StandardClaims)
+	str, err := token.SignedString(privateKey)
+	if err != nil {
+		return err
+	}
+
+	fmt.Println("========== TOKEN BEGIN ==========")
+	fmt.Println(str)
+	fmt.Println("========== TOKEN END ==========")
+
+	// Marshal the public key from the private key to PKIX.
+	asn1Bytes, err := x509.MarshalPKIXPublicKey(&privateKey.PublicKey)
+	if err != nil {
+		return fmt.Errorf("marshaling public key: %w", err)
+	}
+
+	// Construct a PEM block for the public key.
+	publicBlock := pem.Block{
+		Type:  "PUBLIC KEY",
+		Bytes: asn1Bytes,
+	}
+
+	// Write the public key to the public key file.
+	if err := pem.Encode(os.Stdout, &publicBlock); err != nil {
+		return fmt.Errorf("encoding to public file: %w", err)
+	}
+
+	return nil
+}
+
+// genKey creates an x509 private/public key for auth tokens.
+func genKey() error {
 
 	// Generate a new private key.
 	privateKey, err := rsa.GenerateKey(rand.Reader, 2048)
