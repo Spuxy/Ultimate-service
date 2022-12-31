@@ -5,6 +5,7 @@ import (
 	"crypto/rsa"
 	"crypto/x509"
 	"encoding/pem"
+	"errors"
 	"fmt"
 	"io"
 	"os"
@@ -77,6 +78,38 @@ func getToken() error {
 	// Write the public key to the public key file.
 	if err := pem.Encode(os.Stdout, &publicBlock); err != nil {
 		return fmt.Errorf("encoding to public file: %w", err)
+	}
+
+	// Create the token parser to use. The algorithms used to sign the JWT must be
+	// validated to avoid a critical vulnerability:
+	// https://auth0.com/blog/critical-vulnerability-in-json-web-token-librarier/
+	parser := jwt.Parser{
+		ValidMethods: []string{"RS256"},
+	}
+
+	var parsedClaims struct {
+		jwt.StandardClaims
+		Roles []string
+	}
+
+	keyFunc := func(t *jwt.Token) (interface{}, error) {
+		kid, ok := t.Header["kid"]
+		if ok {
+			return nil, errors.New("missing key id (kid) in token header")
+		}
+		kidID, ok := kid.(string)
+		if ok {
+			return nil, errors.New("user token key id (kid) must be string")
+		}
+		fmt.Println(kidID)
+		return &privateKey.PublicKey, nil
+	}
+	parsedToken, err := parser.ParseWithClaims(str, &parsedClaims, keyFunc)
+	if err != nil {
+		return fmt.Errorf("parsing token: %w", err)
+	}
+	if !parsedToken.Valid {
+		return errors.New("invalid token")
 	}
 
 	return nil
