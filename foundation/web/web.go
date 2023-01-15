@@ -2,7 +2,6 @@ package web
 
 import (
 	"context"
-	"fmt"
 	"net/http"
 	"os"
 	"time"
@@ -62,11 +61,8 @@ func (a *App) Handle(method string, group string, path string, handler Handler, 
 
 		// Call the wrapped handler functions.
 		if err := handler(ctx, w, r); err != nil {
-			panic(err)
+			return
 		}
-
-		// POST CODE PROCCESSING
-		fmt.Fprintln(w, "POST")
 
 	}
 

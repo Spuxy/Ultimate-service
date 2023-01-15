@@ -59,6 +59,7 @@ func APIMux(cfg APIMuxConfig) *httptreemux.ContextMux {
 	mx := web.NewApp(
 		cfg.Shutdown,
 		mid.Logger(cfg.Log),
+		mid.Errors(cfg.Log),
 	)
 
 	// Load the v1 routes.

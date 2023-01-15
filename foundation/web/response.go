@@ -15,8 +15,6 @@ func Respond(ctx context.Context, w http.ResponseWriter, data any, statusCode in
 		return nil
 	}
 
-	SetStatusCode(ctx, statusCode)
-
 	// Convert the response value to JSON.
 	jsonData, err := json.Marshal(data)
 	if err != nil {
@@ -28,6 +26,8 @@ func Respond(ctx context.Context, w http.ResponseWriter, data any, statusCode in
 
 	// Write the status code to the response.
 	w.WriteHeader(statusCode)
+
+	SetStatusCode(ctx, statusCode)
 
 	// Send the result back to the client.
 	if _, err := w.Write(jsonData); err != nil {
