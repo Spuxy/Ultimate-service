@@ -4,6 +4,7 @@ package auth
 import (
 	"crypto/rsa"
 	"errors"
+	"fmt"
 
 	"github.com/golang-jwt/jwt/v4"
 )
@@ -63,4 +64,38 @@ func New(activeKID string, keyLookup KeyLooker) (*Auth, error) {
 		keyFunc:   keyFunc,
 		parser:    parser,
 	}, nil
+}
+
+// GenerateToken generates a signed JWT token string representing the user Claims.
+func (a *Auth) GenerateToken(claims Claims) (string, error) {
+	token := jwt.NewWithClaims(a.method, claims)
+	token.Header["kid"] = a.activeKID
+
+	privateKey, err := a.keyLookup.PrivateKey(a.activeKID)
+	if err != nil {
+		return "", errors.New("kid lookup failed")
+	}
+
+	str, err := token.SignedString(privateKey)
+	if err != nil {
+		return "", fmt.Errorf("signing token: %w", err)
+	}
+
+	return str, nil
+}
+
+// ValidateToken recreates the Claims that were used to generate a token. It
+// verifies that the token was signed using our key.
+func (a *Auth) ValidateToken(tokenStr string) (Claims, error) {
+	var claims Claims
+	token, err := a.parser.ParseWithClaims(tokenStr, &claims, a.keyFunc)
+	if err != nil {
+		return Claims{}, fmt.Errorf("parsing token: %w", err)
+	}
+
+	if !token.Valid {
+		return Claims{}, errors.New("invalid token")
+	}
+
+	return claims, nil
 }
