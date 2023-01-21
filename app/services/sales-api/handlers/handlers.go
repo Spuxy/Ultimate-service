@@ -60,6 +60,7 @@ func APIMux(cfg APIMuxConfig) *httptreemux.ContextMux {
 		cfg.Shutdown,
 		mid.Logger(cfg.Log),
 		mid.Errors(cfg.Log),
+		mid.Metrics(),
 		mid.Panics(),
 	)
 
